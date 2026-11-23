@@ -110,11 +110,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ],
-}
-
-SIMPLE_JWT = {
-    'TOKEN_REFRESH_SERIALIZER': 'api.jwt.JWTRefreshSerializer',
-    'TOKEN_VERIFY_SERIALIZER': 'api.jwt.JWTVerifySerializer',
+    'EXCEPTION_HANDLER': 'api.views.jwt_exception_handler',
 }
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

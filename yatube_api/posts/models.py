@@ -5,15 +5,20 @@ User = get_user_model()
 
 
 class Group(models.Model):
+    """Сообщество, объединяющее публикации по теме."""
+
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     description = models.TextField()
 
     def __str__(self):
+        """Возвращает название группы."""
         return self.title
 
 
 class Post(models.Model):
+    """Публикация пользователя с необязательными изображением и группой."""
+
     text = models.TextField()
     pub_date = models.DateTimeField('Дата публикации', auto_now_add=True)
     author = models.ForeignKey(
@@ -26,10 +31,13 @@ class Post(models.Model):
     )
 
     def __str__(self):
+        """Возвращает текст публикации."""
         return self.text
 
 
 class Comment(models.Model):
+    """Комментарий пользователя к конкретной публикации."""
+
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='comments')
     post = models.ForeignKey(
@@ -40,6 +48,8 @@ class Comment(models.Model):
 
 
 class Follow(models.Model):
+    """Подписка одного пользователя на другого."""
+
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='follows',
     )

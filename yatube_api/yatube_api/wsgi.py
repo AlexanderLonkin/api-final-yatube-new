@@ -1,9 +1,6 @@
-"""
-WSGI config for yatube_api project.
+WSGI-сервер получает приложение через переменную ``application``.
 
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
+Подробнее в документации Django.
 https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/
 """
 
